@@ -5,6 +5,10 @@
     font-family: Lexend Deca;
 }
 
+.container{
+    margin: 2rem 4rem 0 4rem;
+}
+
 .logo{
     display: flex;
     gap: 1rem;
@@ -12,12 +16,14 @@
 }
 
 .logoimg{
-    margin-top: 0.5rem;       
+    margin-top: 0.5rem;    
+    margin-right:0.1rem ;   
 }
 
 .title{
     color: rgb(209,208,197);    
-    font: "Roboto Mono", "Roboto Mono", "Vazirmatn";
+    font-weight: lighter;
+    font-size: 2.1rem;
 }
 
 .icn{
@@ -60,6 +66,6 @@
 
 /* ------paragraph----------- */
 
-.paragraph-container{    
+/* .paragraph-container{    
     margin: 4rem 4rem 2rem 4rem;
-}
+} */
