@@ -56,6 +56,11 @@
     padding: 0 1.5rem 0 0 ;
     background-color: rgb(44,46,49);
 }
+
+.feature-elements:hover{
+    color: white;
+}
+
 .split{
     margin-right: 1rem;
     padding: 0;    
@@ -66,6 +71,6 @@
 
 /* ------paragraph----------- */
 
-/* .paragraph-container{    
-    margin: 4rem 4rem 2rem 4rem;
-} */
+.paragraph-container{
+    margin-top: 3rem;
+}

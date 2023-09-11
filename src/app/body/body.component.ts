@@ -1,4 +1,4 @@
-import { Component,HostListener } from '@angular/core';
+import { Component,HostListener, Input } from '@angular/core';
 import { TextService } from '../Services/text.service';
 
 
@@ -12,19 +12,30 @@ export class BodyComponent {
   constructor(private textService : TextService){}
 
   ngOnInit():void{
-    console.log("started");
-    
+    console.log("started");    
     this.generateParagraph();
+  }
+
+  ngOnchange():void{
+    console.log("changes noted");    
+    if(this.textService.getToogleStatus() == false){
+      let para = this.togglePunct();
+      this.showelement(para);
+    }
+    
   }
 
   //#region Global Variable Declaration
   Paragraph : any;
   paraindex : number = 0;
+  togglePunctuation : boolean = false
+  toggleNumbers : boolean = false
   //#endregion
 
   //#region get paragraph from service  
   randomNum : number = 0;
   counter : number = 0;
+
   public generateParagraph():any{
     console.log("generating");
     
@@ -37,8 +48,9 @@ export class BodyComponent {
     }); 
   }
 
-  showelement(){ 
+  showelement(value ? : string){ 
     var div = document.getElementById('divpara');
+    if(value != null){this.Paragraph = value}
     for(let i = 0;i<this.Paragraph.length;i++){
       let spantag = document.createElement('span');
       spantag.textContent = this.Paragraph[i]
@@ -83,4 +95,11 @@ export class BodyComponent {
 
   //#endregion
 
+  //#region Morphing Paragraph Elements
+  togglePunct() : any{
+    console.log(this.textService.toggle_Punctuation(this.Paragraph));
+    return this.textService.toggle_Punctuation(this.Paragraph);
+    
+  }
+  //#endregion
 }
