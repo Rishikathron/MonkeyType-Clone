@@ -1,0 +1,107 @@
+{
+    "company" : [
+        {
+        "companyName" : "string"
+        }
+    ],
+    "Selection " : [
+        {
+            "AssessmentId" : 123,
+            "Company" : "Tenneco",
+            "Market" : "Europe",
+            "MarketUnit" : "Gallia",
+            "Comments" : "test",
+            "CreatedBy" : "karthikeyan.madhan@accenture.com",
+            "CreatedDateTime(UTc)" : "9/11/23 09:52:52"
+        }
+    ]
+}
+
+// -----------
+
+{
+    "CompanyName" : "string",
+    "Industry" : "LifeScience",
+    "Diagnostic" : "NPF",
+    "Date" : "9/15/22",
+    
+    "Capability" : [{
+        "CapabilityName" : "name",
+        "CurrentAverageScore" : 2.0,
+        "CurrentDistributionScore" : [
+            {
+                "Score" : 1,
+                "Value" : 1
+            },
+            {
+                "Score" : 2,
+                "Value" : 1
+            },
+            {
+                "Score" : 3,
+                "Value" : 1
+            },
+            {
+                "Score" : 4,
+                "Value" : 1
+            },
+            {
+                "Score" : 5,
+                "Value" : 1
+            },
+            {
+                "Score" : 6,
+                "Value" : 1
+            },{
+                "Score" : 7,
+                "Value" : 1
+            },{
+                "Score" : 8,
+                "Value" : 1
+            },{
+                "Score" : 9,
+                "Value" : 1
+            }],
+        "AmbitionAverageScore" : 2.0,
+        "AmbitionDistributionScore" : [
+            {
+                "Score" : 1,
+                "Value" : 1
+            },
+            {
+                "Score" : 2,
+                "Value" : 1
+            },
+            {
+                "Score" : 3,
+                "Value" : 1
+            },
+            {
+                "Score" : 4,
+                "Value" : 1
+            },
+            {
+                "Score" : 5,
+                "Value" : 1
+            },
+            {
+                "Score" : 6,
+                "Value" : 1
+            },{
+                "Score" : 7,
+                "Value" : 1
+            },{
+                "Score" : 8,
+                "Value" : 1
+            },{
+                "Score" : 9,
+                "Value" : 1
+            }
+        ],
+        "TransformationGap" : 4,
+        "TransformationGapDifference" : 4,
+        "Comments" : "string"        
+    }]    
+    
+} 
+

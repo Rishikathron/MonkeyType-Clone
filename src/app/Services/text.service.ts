@@ -31,17 +31,15 @@ export class TextService {
     return this.tooglePunctuation;
   }
   
-  public toggle_Punctuation(Para : string) : string{
+  public toggle_Punctuationfun(Para : string) : string{
 
-    if(Para != null && this.tooglePunctuation == true){
-      for(let i= 0 ; i<Para.length ; i++){
-        if(!(Para.charAt(i) > 'a' && Para.charAt(i) <= 'z') && !(Para.charAt(i) > 'A' && Para.charAt(i) <= 'Z')){
-          Para.replace(Para.charAt(i),"");
-        }
-      }
-      return Para
+    if(Para != null && this.tooglePunctuation == true){      
+      Para = Para.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '');;
+      console.log(Para);      
+      return Para.toLowerCase();
     }
     return "";
+    
   }
 
   //#endregion 

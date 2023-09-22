@@ -1,7 +1,5 @@
-import { Component,HostListener, Input } from '@angular/core';
+import { Component,HostListener, OnChanges, SimpleChanges } from '@angular/core';
 import { TextService } from '../Services/text.service';
-
-
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
@@ -16,20 +14,17 @@ export class BodyComponent {
     this.generateParagraph();
   }
 
-  ngOnchange():void{
-    console.log("changes noted");    
-    if(this.textService.getToogleStatus() == false){
-      let para = this.togglePunct();
-      this.showelement(para);
-    }
-    
+  ngOnChanges(changes: SimpleChanges){
+      console.log("on changes called" + changes);      
   }
 
   //#region Global Variable Declaration
   Paragraph : any;
   paraindex : number = 0;
-  togglePunctuation : boolean = false
-  toggleNumbers : boolean = false
+
+  toggleNumbers : boolean = false;
+  tooglePunctuation : boolean = false;
+
   //#endregion
 
   //#region get paragraph from service  
@@ -50,56 +45,42 @@ export class BodyComponent {
 
   showelement(value ? : string){ 
     var div = document.getElementById('divpara');
-    if(value != null){this.Paragraph = value}
-    for(let i = 0;i<this.Paragraph.length;i++){
-      let spantag = document.createElement('span');
-      spantag.textContent = this.Paragraph[i]
-      console.log(this.Paragraph);        
-      div?.appendChild(spantag);       
+    if(value != null){
+      this.Paragraph = value;
+      for(let i = 0;i<this.Paragraph.length;i++){
+        console.log("inside loop");      
+        let spantag = document.getElementsByTagName('span');
+        spantag[i].textContent = this.Paragraph[i]
+        console.log(this.Paragraph);        
+               
+      }
     }  
-  }
-  //#endregion
-
-  //#region HostListener and Logic with DOM
-
-  @HostListener('document:keydown', ['$event'])
-  onKey(event:any){
-    console.log(event);
-
-    console.log( `  Input Key ${event.key} and para text value is ${this.Paragraph[this.paraindex]}` ); 
-    this.checkKey(event.key);
-  }
- 
-
-  checkKey(value : string)  {   
-      //let divSection = document.getElementById('divpara');
-      let SpanElements = document.querySelectorAll('span');  
-      console.log(value);
-      
-      if(value == "Backspace" ){
-        SpanElements[this.paraindex].style.color = "black";       
-      } 
-      else if(((value >="a" && value <= "z" ) || (value >= "A" && value <= "Z") || value == " ") && value.length == 1){
-        console.log("Value is "+value + " and para value is "+this.Paragraph[this.paraindex]);
-        
-        if(value === this.Paragraph[this.paraindex]){
-          SpanElements[this.paraindex].style.color = "white"
-          this.paraindex++;          
-        }
-        else{
-          SpanElements[this.paraindex].style.color = "red"    
-        }              
-      }            
+    else{
+      for(let i = 0;i<this.Paragraph.length;i++){
+        console.log("inside loop");      
+        let spantag = document.createElement('span');
+        spantag.textContent = this.Paragraph[i]
+        console.log(this.Paragraph);        
+        div?.appendChild(spantag);       
+      }
+    } 
+       
       
   }
-
   //#endregion
 
-  //#region Morphing Paragraph Elements
-  togglePunct() : any{
-    console.log(this.textService.toggle_Punctuation(this.Paragraph));
-    return this.textService.toggle_Punctuation(this.Paragraph);
-    
+  //#region Toggle elements
+  togglePunct(){   
+    this.tooglePunctuation = !this.tooglePunctuation
+    console.log("clicked ",this.tooglePunctuation);
+    this.textService.setToggleStatus(this.tooglePunctuation);
+    this.Paragraph = this.textService.toggle_Punctuationfun(this.Paragraph)
+    console.log("without punct ------------>"+this.Paragraph);    
+    this.showelement(this.Paragraph);
   }
-  //#endregion
+
+toggleNum(){
+    this.toggleNumbers = !this.toggleNumbers;
+  }
+//#endregion
 }
