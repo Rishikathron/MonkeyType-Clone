@@ -1,6 +1,6 @@
 <div class="feature-container">
     <div class="feature-block">            
-        <p class="punctuation feature-elements"  (click)="togglePunct()" >@ punctuation</p>
+        <p class="punctuation feature-elements" (click)="togglePunct()"  [ngClass]="tooglePunctuation?'feature-element-active':'feature-elements'" >@ punctuation</p>
         <p class="numbers feature-elements"># numbers</p>
         <p class = "split feature-elements"></p>
         <p class="numbers feature-elements">time</p>
@@ -9,15 +9,15 @@
         <p class="numbers feature-elements">zen</p>
         <p class="numbers feature-elements">custom</p>
         <p class = "split feature-elements"></p>
-        <p class="numbers feature-elements">15</p>
-        <p class="numbers feature-elements">30</p>
-        <p class="numbers feature-elements">60</p>
-        <p class="numbers feature-elements">120</p>
+        <p class="numbers feature-elements" (click)="setTimer(15); toogleTime(1)" [ngClass]="toogleTimer1?'feature-element-active':'feature-elements'">15</p>
+        <p class="numbers feature-elements" (click)="setTimer(30); toogleTime(2) " [ngClass]="toogleTimer2?'feature-element-active':'feature-elements'">30</p>
+        <p class="numbers feature-elements" (click)="setTimer(60); toogleTime(3)" [ngClass]="toogleTimer3?'feature-element-active':'feature-elements'">60</p>
+        <p class="numbers feature-elements" (click)="setTimer(120); toogleTime(4)" [ngClass]="toogleTimer4?'feature-element-active':'feature-elements'">120</p>
     </div>
 </div>
 
 <div class="container">
-    <div class="timer"></div>
+    <div id="timer"></div>
     <div id="divpara"></div>
     <div class="restart"><button  class="refresh">↺</button></div>
 </div>

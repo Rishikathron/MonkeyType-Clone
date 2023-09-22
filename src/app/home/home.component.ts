@@ -10,10 +10,4 @@ import { TextService } from '../Services/text.service';
 export class HomeComponent {
 
   constructor(private textService : TextService){}
-
- 
-
-  
-
-  
 }

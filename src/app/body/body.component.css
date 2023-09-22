@@ -36,6 +36,10 @@
     color: white;
 }
 
+.feature-element-active{
+    color: yellow;
+}
+
 .split{
     margin-right: 1rem;
     padding: 0;    
